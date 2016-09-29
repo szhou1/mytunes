@@ -5,17 +5,17 @@ describe('PlayerView', function() {
 
     library = new Songs([
       {
-        url: 'mp3s/08 4 Page Letter.mp3',
+        url: 'https://s3-us-west-1.amazonaws.com/hr-mytunes/data/04+One+In+A+Million.mp3',
         title: '4 Page Letter',
         artist: 'Aaliyah'
       },
       {
-        url: 'mp3s/11 We Need A Resolution.mp3',
+        url: 'https://s3-us-west-1.amazonaws.com/hr-mytunes/data/03+Age+Ain%27t+Nothing+But+A+Number.mp3',
         title: 'We Need A Resolution',
         artist: 'Aaliyah'
       },
       {
-        url: 'mp3s/A Third Song.mp3',
+        url: 'https://s3-us-west-1.amazonaws.com/hr-mytunes/data/05+Hot+Like+Fire.mp3',
         title: 'The Third Song',
         artist: 'Aaliyah'
       }
@@ -31,7 +31,7 @@ describe('PlayerView', function() {
     expect(appView.playerView.model).to.equal(library.at(0));
   });
 
-  xit('dequeues a song when finished playing & plays the next song', function() {
+  it('dequeues a song when finished playing & plays the next song', function() {
     var firstSong = library.at(0);
     var secondSong = library.at(1);
     var thirdSong = library.at(2);
@@ -45,6 +45,11 @@ describe('PlayerView', function() {
     expect(appView.playerView.model).to.equal(firstSong);
     // Simulate the end of the first song
     $(appView.playerView.el).trigger('ended');
+    // console.log(firstSong);
+    // console.log(appView.playerView.model);
+    // console.log(songQueue.at(0));
+    // console.log(appView.playerView.model);
+    // console.log(secondSong);
     expect(appView.playerView.model).to.equal(secondSong);
     // Simulate the end of the second song
     $(appView.playerView.el).trigger('ended');
