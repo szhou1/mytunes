@@ -7,6 +7,9 @@
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="styles/styles.css"></style>    
+
+    <script src="env/config.js"></script>
     <script src="data/data.js"></script>
 
     <script src="models/SongModel.js"></script>
@@ -23,15 +26,27 @@
 
     <script>
       $(function() {
-        // set up model objects
-        var library = new Songs(songData);
-        var app = new AppModel({library: library});
 
-        // build a view for the top level of the whole app
-        var appView = new AppView({model: app});
+        $.ajax({
+          url: 'https://api.parse.com/1/classes/songs/',
+          type: 'GET',
+          dataType: 'json',
+          success: function(data) {
+            // set up model objects
+            var library = new Songs(data.results);
+            console.log(data.results);
+            var app = new AppModel({library: library});
 
-        // put the view onto the screen
-        $('body').append(appView.render());
+            // build a view for the top level of the whole app
+            var appView = new AppView({model: app});
+
+            // put the view onto the screen
+            $('body').append(appView.render());
+          },
+          error: function(error) {
+            console.log('error', error);
+          }
+        });
       });
     </script>
   </body>
