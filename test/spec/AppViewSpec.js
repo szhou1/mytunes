@@ -1,4 +1,4 @@
-xdescribe('AppView', function() {
+describe('AppView', function() {
   var appView, app;
 
   beforeEach(function () {
