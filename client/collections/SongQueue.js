@@ -11,6 +11,10 @@ var SongQueue = Backbone.Collection.extend({
       }
     });
 
+    this.on('enqueue', function(song) {
+      this.add(song);
+    });
+
     this.on('ended', function() {
       this.shift();
       if (this.length) {
