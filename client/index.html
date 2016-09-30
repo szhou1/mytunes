@@ -30,11 +30,11 @@
         $.ajax({
           url: 'https://api.parse.com/1/classes/songs/',
           type: 'GET',
+          // data: {where: {title: {$in: ['Back and Forth']}}},
           dataType: 'json',
           success: function(data) {
             // set up model objects
             var library = new Songs(data.results);
-            console.log(data.results);
             var app = new AppModel({library: library});
 
             // build a view for the top level of the whole app

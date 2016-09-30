@@ -19,9 +19,19 @@ th {
 
 audio {
   width: 100%;
-  position: fixed;
+  /*position: fixed;*/
 }
 
 .library {
   padding-top: 35px;
+}
+
+.searchBar {
+  font-size: 20px;
+  float: right;
+}
+
+.searchButton {
+  float: right;
+  font-size: 20px;  
 }
