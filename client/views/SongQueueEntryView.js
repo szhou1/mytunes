@@ -3,7 +3,12 @@ var SongQueueEntryView = Backbone.View.extend({
   
   tagName: 'tr',
 
-  template: _.template('<td>(<%= artist %>)</td><td><%= title %></td>'),
+  template: _.template('<td><img src = <%= artwork_url %>></td>' +
+                       '<td><%= artist %></td>' + 
+                       '<td><%= album %></td>' +
+                       '<td><%= title %></td>' +
+                       '<td><%= playCount %></td>'
+                       ),
 
   events: {
     'click': function() {

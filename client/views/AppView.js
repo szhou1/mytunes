@@ -15,6 +15,11 @@ var AppView = Backbone.View.extend({
   },
 
   render: function() {
+
+    this.playerView.$el = $('<div class="player"/>').append(this.playerView.$el);
+    this.libraryView.$el = $('<div class="library"/>').append(this.libraryView.$el);
+    this.songQueueView.$el = $('<div class="queue"/>').append(this.songQueueView.$el);
+
     return this.$el.html([
       this.playerView.$el,
       this.libraryView.$el,

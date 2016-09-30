@@ -2,3 +2,26 @@ img {
   height: 50px;
   width: 50px;
 }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table, td, th {
+  min-width: 100px;
+  padding: 10px;
+  border: 1px solid black;
+}
+th {
+  position: relative;
+}
+
+audio {
+  width: 100%;
+  position: fixed;
+}
+
+.library {
+  padding-top: 35px;
+}
